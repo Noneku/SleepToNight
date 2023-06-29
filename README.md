@@ -4,6 +4,6 @@ Convention Nommage :
 
 Nommage Dossier -> camelCase
 
-Controller -> fichier.ctrl.php ; \n
-Class -> fichier.class.php ; \n
+Controller -> fichier.ctrl.php ;
+Class -> fichier.class.php ;
 View -W fichier.view.php
