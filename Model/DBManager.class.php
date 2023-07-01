@@ -1,29 +1,30 @@
 <?php
 
 	class DBManager
-    {   private $bdd;
+    {   
+        private $bdd;
 
         //constructeur qui initialise la connxion à la BDD
         public function __construct()
         {
-           $this->bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8mb4', 'root', '');
+           $this->bdd = new PDO('mysql:host=localhost;dbname=sleeptonightv2;charset=utf8mb4', 'root', '');
         }
 
-        //Methode qui renvoie la liste des employés
-	    public function selectListeEmploye() : array
+        //Methode qui renvoie la liste des client
+	    public function selectListeClient() : array
         {
-            $stmt= $this->bdd->prepare("SELECT * FROM `test`; ");
+            $stmt= $this->bdd->prepare("SELECT * FROM `client`; ");
             $stmt->execute();
-            $listEmploi = $stmt->fetchAll();
-            return $listEmploi;
+            $listclient = $stmt->fetchAll();
+            return $listclient;
         }
 
    
-        //methode qui ajoute une personne
-        public function insertEmploye($name, $surname, $sex) : void {       
-            $sql = "INSERT INTO test (name, surname, sex) VALUES (?,?,?)";
+        //methode qui ajoute un client
+        public function insertClient( $nationalite, $num_passe,$prenom_client,$adress_client,$tele_client) : void {       
+            $sql = "INSERT INTO client (nationalite,numpasseprot ,prenom_client,adress_client,tele_client) VALUES (?,?,?,?,?)";
             $stmt= $this->bdd->prepare($sql);
-            $stmt->execute([$name, $surname, $sex]);
+            $stmt->execute([$nationalite,$num_passe,$prenom_client,$adress_client,$tele_client]);
         
         }
 
@@ -36,7 +37,9 @@
         // public function updateSalaireEmploye($noemp, $sal) : void {
 
         // }
-
+        public function conexionUser(){
+            
+            }
     }
 
 
