@@ -7,15 +7,15 @@ if(isset($_POST)){
 
     $Utilisateur = new Utilisateur(
         $_POST['nom_utilisateur'],
-        $_POST['mot_de_passe'],
+        hash('md5', $_POST['mot_de_passe']),
         $_POST['nationalite'],
         $_POST['num_passeport'],
         $_POST['nom_prenom'],
-        $_POST['num_passeport'],
         $_POST['adresse'],
         $_POST['telephone'],
     );
     
+    //Insert User in Date Base
     $DBManager = new DBManager();
     $DBManager->insertEmploye($Utilisateur);
 }

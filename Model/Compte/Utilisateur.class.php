@@ -11,8 +11,8 @@ class Utilisateur extends Client
 
     private static int $cptID = 0;
     
-    function __construct(string $nom_de_compte, string $mot_de_passe, string $nationalite, $num_passport, $nom_prenom, $adresse, $telephone) {
-        parent::__construct($nationalite, $num_passport, $nom_prenom, $adresse, $telephone);
+    function __construct(string $nom_de_compte, string $mot_de_passe, string $nationalite, string $num_passeport, string $nom_prenom, string $adresse, string $telephone) {
+        parent::__construct($nationalite, $num_passeport, $nom_prenom, $adresse, $telephone);
 
         $this->id = Utilisateur::$cptID++;
     	$this->nom_de_compte = $nom_de_compte;

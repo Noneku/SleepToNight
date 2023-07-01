@@ -20,16 +20,30 @@
 
    
         //methode qui ajoute une personne
-        public function insertEmploye( Utilisateur $utilisateur) : void {  
-
-            $sql = "INSERT INTO utilisateur (nom_utilisateur, mot_de_passe,id_client, id_client) VALUES (?,?,?)";
+        public function insertEmploye( Utilisateur $utilisateur) : void {
+            
+            //Insert Client
+            $sql = "INSERT INTO client (nationalite, num_passeport, nom_prenom, adresse, telephone) VALUES (?,?,?,?,?)";
             $stmt= $this->bdd->prepare($sql);
             $stmt->execute([
-                $utilisateur->getNom_de_compte(), 
-                $utilisateur->getMot_de_passe(), 
-                $utilisateur->getId()
-            ]);
-        
+                $utilisateur->getNationalite(), 
+                $utilisateur->getnum_passeport(), 
+                $utilisateur->getNom_prenom(),
+                $utilisateur->getAdresse(),
+                $utilisateur->getTelephone(),
+            ]);  
+            
+            //Get last ID in table Client
+            $id_Client = $this->bdd->lastInsertId();
+
+            //Insert User
+            $sqlUser = "INSERT INTO utilisateur (nom_utilisateur, mot_de_passe, id_client) VALUES (?,?,?)";
+            $stmtUser = $this->bdd->prepare($sqlUser);
+            $stmtUser->execute([
+                $utilisateur->getNom_de_compte(),
+                $utilisateur->getMot_de_passe(),
+                $id_Client
+            ]);  
         }
 
         // //methode qui supprime un employe par son noemp
