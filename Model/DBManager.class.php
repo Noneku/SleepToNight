@@ -6,7 +6,7 @@
         //constructeur qui initialise la connxion à la BDD
         public function __construct()
         {
-           $this->bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8mb4', 'root', '');
+           $this->bdd = new PDO('mysql:host=localhost;dbname=sleeptonightv2;charset=utf8mb4', 'root', '');
         }
 
         //Methode qui renvoie la liste des employés
@@ -20,11 +20,30 @@
 
    
         //methode qui ajoute une personne
-        public function insertEmploye($name, $surname, $sex) : void {       
-            $sql = "INSERT INTO test (name, surname, sex) VALUES (?,?,?)";
+        public function insertEmploye( Utilisateur $utilisateur) : void {
+            
+            //Insert Client
+            $sql = "INSERT INTO client (nationalite, num_passeport, nom_prenom, adresse, telephone) VALUES (?,?,?,?,?)";
             $stmt= $this->bdd->prepare($sql);
-            $stmt->execute([$name, $surname, $sex]);
-        
+            $stmt->execute([
+                $utilisateur->getNationalite(), 
+                $utilisateur->getnum_passeport(), 
+                $utilisateur->getNom_prenom(),
+                $utilisateur->getAdresse(),
+                $utilisateur->getTelephone(),
+            ]);  
+            
+            //Get last ID in table Client
+            $id_Client = $this->bdd->lastInsertId();
+
+            //Insert User
+            $sqlUser = "INSERT INTO utilisateur (nom_utilisateur, mot_de_passe, id_client) VALUES (?,?,?)";
+            $stmtUser = $this->bdd->prepare($sqlUser);
+            $stmtUser->execute([
+                $utilisateur->getNom_de_compte(),
+                $utilisateur->getMot_de_passe(),
+                $id_Client
+            ]);  
         }
 
         // //methode qui supprime un employe par son noemp
