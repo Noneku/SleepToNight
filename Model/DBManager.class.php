@@ -20,13 +20,40 @@
         }
 
    
+
         //methode qui ajoute un client
         public function insertClient( $nationalite, $num_passe,$prenom_client,$adress_client,$tele_client) : void {       
             $sql = "INSERT INTO client (nationalite,numpasseprot ,prenom_client,adress_client,tele_client) VALUES (?,?,?,?,?)";
             $stmt= $this->bdd->prepare($sql);
             $stmt->execute([$nationalite,$num_passe,$prenom_client,$adress_client,$tele_client]);
-        
         }
+
+        //methode qui ajoute une personne
+        public function insertEmploye( Utilisateur $utilisateur) : void {
+            
+            //Insert Client
+            $sql = "INSERT INTO client (nationalite, num_passeport, nom_prenom, adresse, telephone) VALUES (?,?,?,?,?)";
+            $stmt= $this->bdd->prepare($sql);
+            $stmt->execute([
+                $utilisateur->getNationalite(), 
+                $utilisateur->getnum_passeport(), 
+                $utilisateur->getNom_prenom(),
+                $utilisateur->getAdresse(),
+                $utilisateur->getTelephone(),
+            ]);  
+            
+            //Get last ID in table Client
+            $id_Client = $this->bdd->lastInsertId();
+
+            //Insert User
+            $sqlUser = "INSERT INTO utilisateur (nom_utilisateur, mot_de_passe, id_client) VALUES (?,?,?)";
+            $stmtUser = $this->bdd->prepare($sqlUser);
+            $stmtUser->execute([
+                $utilisateur->getNom_de_compte(),
+                $utilisateur->getMot_de_passe(),
+                $id_Client
+            ]);  
+      }
 
         // //methode qui supprime un employe par son noemp
         // public function supprEmploye($noemp) : void {
@@ -37,9 +64,31 @@
         // public function updateSalaireEmploye($noemp, $sal) : void {
 
         // }
-        public function conexionUser(){
-            
+        //methode de connexion d'un utilisateur
+        public function conexionUser($login,$password){
+            //selectionné le nom d'utilisateur
+            $sql="SELECT * FROM utilisateur where nom_utilisateur='$login'";
+            $result= $this->bdd->prepare($sql);
+            $result->execute();
+            //si une ligne avec le nom d'utilisateur existe alors on controle le mot de passe
+            if($result->rowCount()>0)
+        
+            { 
+                $data = $result->fetchAll();
+                //verification du mot de passe hashé
+                if (password_verify($password,$data[0]["mot_de_passe"])){
+               
+                 echo "Connexion effectuée";
+                $_SESSION['nom_utilisateur'] = $login;
+                }else{
+                    echo "connexion echoué";
+                } 
+            }else{
+                echo "vous n'êtes pas inscrit";
             }
+        }
+
+            
 
         /**
          * Get the value of bdd
