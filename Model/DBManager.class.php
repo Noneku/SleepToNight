@@ -40,6 +40,26 @@
         public function conexionUser(){
             
             }
+
+        /**
+         * Get the value of bdd
+         */ 
+        public function getBdd()
+        {
+                return $this->bdd;
+        }
+
+        /**
+         * Set the value of bdd
+         *
+         * @return  self
+         */ 
+        public function setBdd($bdd)
+        {
+                $this->bdd = $bdd;
+
+                return $this;
+        }
     }
 
 

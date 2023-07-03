@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
     $password=$_POST['password'];
     $db = new DBManager();
     $sql="SELECT * FROM utilisateur where nom_utilisateur='$login'";
-    $result= $db->$bdd->prepare($sql);
+    $result= $db->getBdd()->prepare($sql);
     $result->execute();
     if($result->rowCount()>0)
 
