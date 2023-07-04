@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE html>
+<html lang= "en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charsert= "UTF-8">
+    <title>Page d'administration</title>
+    <link rel="stylesheet"  href="admin.View.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheet/styles.css">
-    <title>Hotel SleepToNight</title>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+    
+   
 </head>
 
+<?php
+session_start();
+?>
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">SleepToNight</a>
@@ -47,10 +45,63 @@
             </div>
         </nav>
     </header>
-    <main>
-    </main>
-    <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+
+<div class="card" style="width: 18rem;">
+  <img src="../typy-pokoi-hotelowych.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Catégorie de Chambres</h5>
+    <td></td><a href="./cateAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Réservation.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Réservations</h5>
+    <a href="./reserAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Client.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Historique des Clients</h5>
+    <a href="./clientAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Listre chambre.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Liste des Chambres</h5>
+    <a href="./chambreAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Liste utilisateur.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Liste des Utilisateur</h5>
+    <a href="./utiliAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -172,5 +223,8 @@
     </footer>
     <!-- Footer -->
 </body>
-
 </html>
+
+
+
+ 
