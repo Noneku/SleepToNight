@@ -11,40 +11,25 @@
 <body>
     <header>
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">SleepToNight</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown link
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <main>
+    <h1>Formulaire de chambre</h1>
+    <form action="traitement.php" method="POST">
+        <label for="numChambre">Numéro de chambre:</label>
+        <input type="text" id="numChambre" name="numChambre"><br><br>
 
+        <label for="etage">Étage:</label>
+        <input type="text" id="etage" name="etage"><br><br>
+
+        <label for="prix">Prix:</label>
+        <input type="text" id="prix" name="prix"><br><br>
+
+        <label for="emplacement">Emplacement:</label>
+        <input type="text" id="emplacement" name="emplacement"><br><br>
+
+        <label for="codeCategorie">Code catégorie:</label>
+        <input type="text" id="codeCategorie" name="codeCategorie"><br><br>
+
+        <input type="submit" value="Enregistrer">
+    </form>
     </main>
     <footer class="bg-info text-center text-lg-start fixed-bottom">
         <!-- Grid container -->
@@ -146,6 +131,7 @@
         </div>
         <!-- Copyright -->
     </footer>
-</body>
 
+    
+</body>
 </html>
