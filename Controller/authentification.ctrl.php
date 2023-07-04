@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 include "..\Model\DBManager.class.php";
 
 
@@ -10,7 +10,8 @@ if(isset($_POST))
     $password = $_POST['mot_de_passe'];
     $db = new DBManager();
     $db->connexionUser($login,$password);
-    
+    session_start();
+    $_SESSION['nom_utilisateur'];
 }
 
 ?>
