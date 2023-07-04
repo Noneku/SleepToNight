@@ -1,14 +1,14 @@
-<form class ="w-25">
+<form method="post" action="..\Controller\authentification.ctrl.php"  class ="w-25">
     <!-- Email input -->
     <div class="form-outline mb-4">
-        <input type="text" id="form2Example1" class="form-control" />
-        <label class="form-label" for="form2Example1">Nom de compte</label>
+        <input type="text" id="nom_utilisateur" name="nom_utilisateur" class="form-control" />
+        <label class="form-label" for="nom_utilisateur">Nom de compte</label>
     </div>
 
     <!-- Password input -->
     <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control" />
-        <label class="form-label" for="form2Example2">Password</label>
+        <input type="password" id="mot_de_passe" name="mot_de_passe" class="form-control" />
+        <label class="form-label" for="mot_de_passe">Password</label>
     </div>
 
     <!-- 2 column grid layout for inline styling -->

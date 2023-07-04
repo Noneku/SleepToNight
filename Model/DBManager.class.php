@@ -65,7 +65,7 @@
 
         // }
         //methode de connexion d'un utilisateur
-        public function conexionUser($login,$password){
+        public function connexionUser($login,$password){
             //selectionné le nom d'utilisateur
             $sql="SELECT * FROM utilisateur where nom_utilisateur='$login'";
             $result= $this->bdd->prepare($sql);
@@ -77,14 +77,20 @@
                 $data = $result->fetchAll();
                 //verification du mot de passe hashé
                 if (password_verify($password,$data[0]["mot_de_passe"])){
-               
-                 echo "Connexion effectuée";
+
+                    echo "Connexion effectuée";
                 $_SESSION['nom_utilisateur'] = $login;
+
                 }else{
+
                     echo "connexion echoué";
-                } 
+
+                }
+                
             }else{
+
                 echo "vous n'êtes pas inscrit";
+
             }
         }
 
