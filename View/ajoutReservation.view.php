@@ -1,3 +1,6 @@
+<?php session_start()?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +10,34 @@
 </head>
 <body>
 <form class="box" action="..\Controller\ajoutReservation.ctrl.php" method="post" >
-<h1 class="box-title">Reservation</h1>
-<label for="date_reservation">Date de Réservation Date arrivée date de Départ</label><br>
-<input type="date" class="box-input" name="date_reservation" value="<?php echo date('Y-m-d');?>" >
-<label for="date_entrer">Date arrivée</label><br>
-<input type="date" class="box-input" name="date_entrer" placeholder="Date d'arrivée">
-<input type="date" class="box-input" name="date_sortie" placeholder="Date de depart">
+    <h1 class="box-title">Reservation</h1>
+
+    <p>
+        <label for="date_reservation">Date de réservation</label><br>
+        <input type="date" class="box-input" name="date_reservation" value="<?php echo date('Y-m-d');?>" readonly><br><br>
+    </p>
+
+    <p>
+        <label for="date_entrer">Date arrivée</label><br>
+        <input type="date" class="box-input" name="date_entrer" placeholder="Date d'arrivée"><br><br>
+    </p>
+
+    <p>
+        <label for="date_reservation">Date de départ</label><br>
+        <input type="date" class="box-input" name="date_sortie" placeholder="Date de depart"><br><br>
+    </p>
+
+    <p>
+        <label for="id_chambre">Selectionner votre chambre: </label><br>
+        <select id="id_chambre" name="id_chambre">
+            <option value="selection">Selection</option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select><br>
+    </p>
+
 <input type="submit" value="Reserver " name="submit" class="box-button">
 </form>
 </body>
