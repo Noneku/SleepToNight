@@ -7,7 +7,7 @@ if(isset($_POST)){
 
     $Utilisateur = new Utilisateur(
         $_POST['nom_utilisateur'],
-        hash('md5', $_POST['mot_de_passe']),
+        password_hash($_POST['mot_de_passe'],PASSWORD_DEFAULT),
         $_POST['nationalite'],
         $_POST['num_passeport'],
         $_POST['nom_prenom'],
