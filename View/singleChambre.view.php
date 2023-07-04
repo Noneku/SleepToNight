@@ -13,6 +13,10 @@
     <?php include('../Model/DBManager.class.php');
     $db = new DBManager();
     $listChambres = $db->selectListeChambre();
+    $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
+
+    var_dump($chambre);
+
     ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -46,15 +50,13 @@
         </nav>
     </header>
     <main>
-        <?php var_dump($_POST);?>
         <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
             <div class="card" style="width: 18rem;">
                 <img src="https://picsum.photos/200" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre'] ?></h5>
-                    <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€" ?></h5>
+                    <h5 class="card-title">Chambre numéro : <?php echo $chambre[0]['id_chambre'] ?></h5>
+                    <h4 class="card-title">Prix : <?php echo $chambre[0]['prix'] . "€" ?></h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="./singleChambre.view.php" class="btn btn-primary">Consulter</a>
                 </div>
             </div>
         </section>

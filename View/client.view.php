@@ -10,40 +10,40 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">SleepToNight</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Assistance</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="d-flex">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Déconnexion</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
     <main>
         <!DOCTYPE html>
         <html lang="en">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="../index.php">SleepToNight</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../index.php">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Assistance</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../index.php">Déconnexion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
         <head>
             <meta charset="UTF-8">
@@ -64,59 +64,29 @@
             $db = new DBManager();
             $listChambres = $db->selectListeChambre();
             ?>
-            <header>
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="index.php">SleepToNight</a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Assistance</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="d-flex">
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="View/connexion.view.php">Connexion</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+
             <main>
                 <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
                     <?php
                     foreach ($listChambres as $key => $chambre) :
                     ?>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://picsum.photos/200" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre'];?></h5>
-                                <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€" ?></h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <form action="./singleChambre.view.php" method="post">
-                                        <a name = "<?php echo $chambre['id_chambre']; ?>" value ="<?php echo $chambre['id_chambre']; ?>"href = "./singleChambre.view.php" type="submit" class="btn btn-primary">Consulter</a>
-                                    </form>
+                        <form action="./singleChambre.view.php" method="post">
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://picsum.photos/200" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre']; ?></h5>
+                                    <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€" ?></h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <button type="submit" name = "id_chambre" value = "<?php echo $chambre['id_chambre']; ?>">Consulter</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     <?php endforeach; ?>
                 </section>
 
             </main>
             <!-- Footer -->
-            <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+            <footer class="text-center text-lg-start bg-light text-muted d-flex">
                 <!-- Section: Social media -->
                 <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                     <!-- Left -->
