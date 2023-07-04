@@ -1,4 +1,4 @@
-<form method="post" action="../../Controller/inscription.ctrl.php" class="w-50">
+<form method="post" action='../Controller/inscription.ctrl.php' class="w-50">
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="form-outline">
