@@ -29,7 +29,7 @@
         //Methode qui renvoie la liste des employés
 	    public function selectListeClient() : array
         {
-            $stmt2 = $this->bdd->prepare("SELECT * FROM `client`; ");
+            $stmt2 = $this->bdd->prepare("SELECT * FROM `client` ORDER BY `id_client`ASC; ");
             $stmt2 ->execute();
             $listClient = $stmt2 ->fetchAll();
             return $listClient;

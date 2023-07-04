@@ -7,18 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/styles.css">
     <title>Hotel SleepToNight</title>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
 </head>
 
 <body>
-    <?php include('./Model/DBManager.class.php');
-        $db = new DBManager();  
-        $listChambres = $db->selectListeChambre();
+    <?php include('../Model/DBManager.class.php');
+    $db = new DBManager();
+    $listChambres = $db->selectListeChambre();
     ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -52,20 +46,17 @@
         </nav>
     </header>
     <main>
-        <section class = " w-100 d-flex flex-row flex-wrap justify-content-around">
-            <?php
-                foreach ($listChambres as $key => $chambre) :
-            ?>
+        <?php var_dump($_POST);?>
+        <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
             <div class="card" style="width: 18rem;">
                 <img src="https://picsum.photos/200" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre']?></h5>
-                    <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€"?></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./View/connexion.view.php" class="btn btn-primary">Consulter</a>
+                    <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre'] ?></h5>
+                    <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€" ?></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="./singleChambre.view.php" class="btn btn-primary">Consulter</a>
                 </div>
             </div>
-            <?php endforeach; ?>
         </section>
 
     </main>
