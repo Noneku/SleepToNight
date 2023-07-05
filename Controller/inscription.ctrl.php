@@ -18,5 +18,7 @@ if(isset($_POST)){
     //Insert User in Date Base
     $DBManager = new DBManager();
     $DBManager->insertEmploye($Utilisateur);
+
+    header('Location: ../View/connexion.view.php');
 }
 ?>

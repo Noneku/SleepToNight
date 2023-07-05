@@ -1,20 +1,24 @@
-
 <!DOCTYPE html>
-<html lang= "en">
+<html lang="en">
+
 <head>
-    <meta charsert= "UTF-8">
-    <title>Page d'administration</title>
-    <link rel="stylesheet"  href="admin.View.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
-   
+    <link rel="stylesheet" href="stylesheet/styles.css">
+    <title>Hotel SleepToNight</title>
 </head>
 
-<?php
-session_start();
-?>
 <body>
-<header>
+    <?php include('../Model/DBManager.class.php');
+    $db = new DBManager();
+    $listChambres = $db->selectListeChambre();
+    $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
+
+    var_dump($chambre);
+
+    ?>
+    <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">SleepToNight</a>
@@ -38,70 +42,28 @@ session_start();
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Déconnexion</a>
+                            <a class="nav-link active" aria-current="page" href="View/connexion.view.php">Connexion</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <main>
+        <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
+            <div class="card" style="width: 18rem;">
+                <img src="https://picsum.photos/200" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Chambre numéro : <?php echo $chambre[0]['id_chambre'] ?></h5>
+                    <h4 class="card-title">Prix : <?php echo $chambre[0]['prix'] . "€" ?></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </section>
 
-<div class="card" style="width: 18rem;">
-  <img src="../typy-pokoi-hotelowych.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Catégorie de Chambres</h5>
-    <td></td><a href="./cateAdmin.view.php" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-
-
-
-<div class="card" style="width: 18rem;">
-  <img src="../Réservation.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Réservations</h5>
-    <a href="./reserAdmin.view.php" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-
-
-
-
-<div class="card" style="width: 18rem;">
-  <img src="../Client.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Historique des Clients</h5>
-    <a href="./clientAdmin.view.php" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-
-
-
-<div class="card" style="width: 18rem;">
-  <img src="../Listre chambre.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Liste des Chambres</h5>
-    <a href="./chambreAdmin.view.php" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-
-
-
-
-<div class="card" style="width: 18rem;">
-  <img src="../Liste utilisateur.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Liste des Utilisateur</h5>
-    <a href="./utiliAdmin.view.php" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+    </main>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted d-flex">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -223,8 +185,5 @@ session_start();
     </footer>
     <!-- Footer -->
 </body>
+
 </html>
-
-
-
- 

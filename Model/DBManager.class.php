@@ -10,6 +10,14 @@
            $this->bdd = new PDO('mysql:host=localhost;dbname=sleeptonightv2;charset=utf8mb4', 'root', '');
         }
 
+        //Méthode qui récupère l'entité selon l'id
+        public function selectById(string $table, string $column, string $id) : array 
+        {
+            $stmt= $this->bdd->prepare("SELECT * FROM `$table` WHERE `$column` = $id;");
+            $stmt->execute();
+            $entity = $stmt->fetchAll();
+            return $entity;
+        }
        //Methode qui renvoie la liste des employés
 	    public function selectListeCategorie() : array
         {
@@ -29,7 +37,7 @@
         //Methode qui renvoie la liste des employés
 	    public function selectListeClient() : array
         {
-            $stmt2 = $this->bdd->prepare("SELECT * FROM `client`; ");
+            $stmt2 = $this->bdd->prepare("SELECT * FROM `client` ORDER BY `id_client`ASC; ");
             $stmt2 ->execute();
             $listClient = $stmt2 ->fetchAll();
             return $listClient;
