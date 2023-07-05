@@ -7,26 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheet/styles.css">
     <title>Hotel SleepToNight</title>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
 </head>
 
 <body>
+    <?php include('../Model/DBManager.class.php');
+    $db = new DBManager();
+    $listChambres = $db->selectListeChambre();
+    $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
+
+    var_dump($chambre);
+
+    ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.php">SleepToNight</a>
+                <a class="navbar-brand" href="index.php">SleepToNight</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Accueil</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Assistance</a>
@@ -40,7 +42,7 @@
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Déconnexion</a>
+                            <a class="nav-link active" aria-current="page" href="View/connexion.view.php">Connexion</a>
                         </li>
                     </ul>
                 </div>
@@ -48,9 +50,20 @@
         </nav>
     </header>
     <main>
+        <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
+            <div class="card" style="width: 18rem;">
+                <img src="https://picsum.photos/200" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Chambre numéro : <?php echo $chambre[0]['id_chambre'] ?></h5>
+                    <h4 class="card-title">Prix : <?php echo $chambre[0]['prix'] . "€" ?></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        </section>
+
     </main>
     <!-- Footer -->
-    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+    <footer class="text-center text-lg-start bg-light text-muted d-flex">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->

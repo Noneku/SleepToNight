@@ -32,6 +32,6 @@
 
     <!-- Register buttons -->
     <div class="text-center">
-        <p>Pas encore membre ? <a href="./inscription.view.php">Crée un compte</a></p>
+        <p>Pas encore membre ? <a href="../inscription.view.php">Crée un compte</a></p>
     </div>
 </form>

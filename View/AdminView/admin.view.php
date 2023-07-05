@@ -1,20 +1,21 @@
-
 <!DOCTYPE html>
-<html lang= "en">
+<html lang="en">
+
 <head>
-    <meta charsert= "UTF-8">
+    <meta charsert="UTF-8">
     <title>Page d'administration</title>
-    <link rel="stylesheet"  href="admin.View.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
-   
+
+
 </head>
 
 <?php
+include '../Model/DBManager.class.php';
 session_start();
 ?>
+
 <body>
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php">SleepToNight</a>
@@ -25,9 +26,6 @@ session_start();
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Assistance</a>
                         </li>
                     </ul>
                 </div>
@@ -45,6 +43,20 @@ session_start();
             </div>
         </nav>
     </header>
+    <main>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Identifiant</th>
+                    <th scope="col">Nom Prénom</th>
+                    <th scope="col">Date Réservation</th>
+                    <th scope="col">Du</th>
+                    <th scope="col">Au</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $db = new DBManager(); ?>
 
 <div class="card" style="width: 18rem;">
   <img src="../typy-pokoi-hotelowych.jpg" class="card-img-top" alt="...">
@@ -223,8 +235,5 @@ session_start();
     </footer>
     <!-- Footer -->
 </body>
+
 </html>
-
-
-
- 
