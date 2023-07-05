@@ -1,18 +1,23 @@
 <?php
-include "..\Model\DBManager.class.php";
+include "../Model/DBManager.class.php";
+session_start();
+
+
 
 $db = new DBManager();
 
 
+// $db -> selectListeChambre();
+// $db -> selectListeClient();
+// $db -> selectListeReservation();
+// $db -> selectListeUtilisateur();
 
-$nationalite = 'Portugais';
-$num_passe = 'AZ260'; 
-$prenom_client='Manuel';
-$adress_client='Ruas Miguel Bombarda, 5 - 4° Esq
-6290 Gouveia';
-$tele_client='0215391383';
+// print_r($db -> selectListeCategorie());
+// print_r($db -> selectListeChambre());
+// print_r($db -> selectListeClient());
+// print_r($db -> selectListeReservation());
+// print_r($db -> selectListeUtilisateur());
 
-$db->insertClient($nationalite,$num_passe,$prenom_client,$adress_client,$tele_client);
-
-//print_r($db->selectListeEmploye());
+$_SESSION['$db'] = $db;
+header("Location: ../V/admin.View.php");
 ?>

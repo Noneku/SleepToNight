@@ -10,13 +10,44 @@
            $this->bdd = new PDO('mysql:host=localhost;dbname=sleeptonightv2;charset=utf8mb4', 'root', '');
         }
 
-        //Methode qui renvoie la liste des client
+       //Methode qui renvoie la liste des employés
+	    public function selectListeCategorie() : array
+        {
+            $stmt= $this->bdd->prepare("SELECT * FROM `categorie`; ");
+            $stmt->execute();
+            $listCategorie = $stmt->fetchAll();
+            return $listCategorie;
+        }
+        //Methode qui renvoie la liste des employés
+	    public function selectListeChambre() : array
+        {
+            $stmt1 = $this->bdd->prepare("SELECT * FROM `chambre`; ");
+            $stmt1 ->execute();
+            $listChambre = $stmt1->fetchAll();
+            return $listChambre;
+        }
+        //Methode qui renvoie la liste des employés
 	    public function selectListeClient() : array
         {
-            $stmt= $this->bdd->prepare("SELECT * FROM `client`; ");
-            $stmt->execute();
-            $listclient = $stmt->fetchAll();
-            return $listclient;
+            $stmt2 = $this->bdd->prepare("SELECT * FROM `client`; ");
+            $stmt2 ->execute();
+            $listClient = $stmt2 ->fetchAll();
+            return $listClient;
+        }
+        //Methode qui renvoie la liste des employés
+	    public function selectListeReservation() : array
+        {
+            $stmt3 = $this->bdd->prepare("SELECT * FROM `reservation`; ");
+            $stmt3 ->execute();
+            $listReservation = $stmt3 ->fetchAll();
+            return $listReservation;
+        }
+	    public function selectListeUtilisateur() : array
+        {
+            $stmt4 = $this->bdd->prepare("SELECT * FROM `utilisateur`; ");
+            $stmt4 ->execute();
+            $listUtilisateur = $stmt4 ->fetchAll();
+            return $listUtilisateur;
         }
 
    
@@ -65,13 +96,13 @@
 
         // }
         //methode de connexion d'un utilisateur
-        public function conexionUser($login,$password){
+        public function connexionUser($login,$password){
             //selectionné le nom d'utilisateur
             $sql="SELECT * FROM utilisateur where nom_utilisateur='$login'";
             $result= $this->bdd->prepare($sql);
             $result->execute();
             //si une ligne avec le nom d'utilisateur existe alors on controle le mot de passe
-            if($result->rowCount()>0)
+            if($result->rowCount()> 0)
         
             { 
                 $data = $result->fetchAll();
@@ -81,10 +112,15 @@
                  echo "Connexion effectuée";
                 $_SESSION['nom_utilisateur'] = $login;
                 }else{
+
                     echo "connexion echoué";
-                } 
+
+                }
+                
             }else{
+
                 echo "vous n'êtes pas inscrit";
+
             }
         }
 
@@ -110,7 +146,6 @@
                 return $this;
         }
     }
-
 
 
 ?>
