@@ -2,24 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charsert="UTF-8">
+    <title>Page d'administration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="stylesheet/styles.css">
-    <title>Hotel SleepToNight</title>
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet" />
+
+
 </head>
 
+<?php
+include '../Model/DBManager.class.php';
+session_start();
+?>
+
 <body>
-    <?php include('./Model/DBManager.class.php');
-        $db = new DBManager();  
-        $listChambres = $db->selectListeChambre();
-    ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -32,9 +27,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Assistance</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="d-flex">
@@ -44,7 +36,7 @@
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="View/connexion.view.php">Connexion</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Déconnexion</a>
                         </li>
                     </ul>
                 </div>
@@ -52,22 +44,36 @@
         </nav>
     </header>
     <main>
-        <section class = " w-100 d-flex flex-row flex-wrap justify-content-around">
-            <?php
-                foreach ($listChambres as $key => $chambre) :
-            ?>
-            <div class="card" style="width: 18rem;">
-                <img src="https://picsum.photos/200" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre']?></h5>
-                    <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€"?></h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="./View/connexion.view.php" class="btn btn-primary">Consulter</a>
-                </div>
-            </div>
-            <?php endforeach; ?>
-        </section>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Identifiant</th>
+                    <th scope="col">Nom Prénom</th>
+                    <th scope="col">Date Réservation</th>
+                    <th scope="col">Du</th>
+                    <th scope="col">Au</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $db = new DBManager();
 
+                $clientsListe = $db->selectListeClient(); ?>
+
+                <?php foreach ($clientsListe as $client) : ?>
+                    <tr>
+                        <th scope ="row"><?php echo $client['id_client']; ?></td>
+                        <td><?php echo $client['nom_prenom']; ?></td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-primary">Plus d'infos</button>
+                            <button type="button" class="btn btn-danger">Supprimer</button>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
     </main>
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted d-flex">

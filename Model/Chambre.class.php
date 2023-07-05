@@ -5,6 +5,7 @@ class Chambre extends Categorie {
     private int $id;
     private float $prix;
     private int $etage;
+    private Categorie $categorie;
 
     function __construct($prix, $etage) {
 
@@ -31,6 +32,14 @@ class Chambre extends Categorie {
         $this->prix = $prix;
 
         return $this;
+    }
+
+    /**
+     * Get the value of categorie
+     */ 
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }
 
