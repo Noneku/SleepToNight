@@ -58,7 +58,14 @@
             return $listUtilisateur;
         }
 
-   
+        public function selectByNom(string $nom)
+        {
+            
+            $stmt= $this->bdd->prepare("SELECT 'id_client' FROM `utilisateur` WHERE  'nom_utilisateur'= '$nom';");
+            $stmt->execute();
+            $entity = $stmt->fetchAll();
+            return $entity;
+        }
 
         //methode qui ajoute un client
         public function insertClient( $nationalite, $num_passe,$prenom_client,$adress_client,$tele_client) : void {       
@@ -118,7 +125,6 @@
                 if (password_verify($password,$data[0]["mot_de_passe"])){
                
                  echo "Connexion effectuée";
-                $_SESSION['nom_utilisateur'] = $login;
                 }else{
 
                     echo "connexion echoué";
@@ -140,14 +146,14 @@
             public function creerUneReservation(Reservation $reservation){
 
 
-                $sql = "INSERT INTO reservation (date_reservation,date_entrer,date_sortie,id_chambre,id_client) VALUES (?,?,?,?,?)";
+                $sql = "INSERT INTO reservation (date_reservation,date_entrer,date_sortie,id_client) VALUES (?,?,?,?)";
                 $stmt= $this->bdd->prepare($sql);
                 $stmt->execute([
                     $reservation->getDate_reservation(),
                     $reservation->getDate_entre(), 
                     $reservation->getDate_sortie(),
                     // $reservation->getChambre(),
-                    $reservation->getClient(),
+                    $reservation->getId_client(),
                 ]);  
                 
             }

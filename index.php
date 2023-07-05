@@ -17,6 +17,7 @@
 
 <body>
     <?php include('./Model/DBManager.class.php');
+        session_start();
         $db = new DBManager();  
         $listChambres = $db->selectListeChambre();
     ?>

@@ -10,8 +10,8 @@
 </head>
 
 <?php
-include '../Model/DBManager.class.php';
-session_start();
+    include '../../Model/DBManager.class.php';
+    session_start();
 ?>
 
 <body>

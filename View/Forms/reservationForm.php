@@ -1,8 +1,10 @@
 <?php
+session_start();
+$_SESSION['nom_utilisateur'];
 ?>
 
 
-<form method="post" action="../Controller/ajoutReservation.ctrl.php" class="w-50">
+<form method="post" action='../../Controller/ajoutReservation.ctrl.php' class="w-50">
 
     <div class="row">
         <div class="col-md-6 mb-4">

@@ -1,12 +1,14 @@
 <?php
     session_start();
-    // $_SESSION ['nom_utilisateur'];
+    $_SESSION['nom_utilisateur'];
     include '../Model/Compte/Reservation.class.php';
     include '../Model/DBManager.class.php';
 
     if(isset($_POST)){
         $db = new DBManager();
-        $id_client=$db->recuperationIdclient($_POST['nom_utilisateur']);
+        $nom=$_SESSION['nom_utilisateur'];
+        var_dump($nom);
+        $id_client = $db->selectByNom($nom);
         $Reservation = new Reservation(
             $_POST['date_reservation'],
             $_POST['date_entrer'],
@@ -16,7 +18,7 @@
         
         $db->creerUneReservation($Reservation);
 
-           print_r($Reservation);
+        //    print_r($Reservation);
     
     
     }
