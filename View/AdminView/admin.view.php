@@ -10,7 +10,7 @@
 </head>
 
 <?php
-include '../Model/DBManager.class.php';
+include '../../Model/DBManager.class.php';
 session_start();
 ?>
 

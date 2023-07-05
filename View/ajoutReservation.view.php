@@ -16,15 +16,9 @@
 </head>
 
 <body>
-<form class="box" action="..\Controller\ajoutReservation.ctrl.php" method="post" >
-<h1 class="box-title">Reservation</h1>
-<label for="date_reservation">Date de Réservation Date arrivée date de Départ</label><br>
-<input type="date" class="box-input" name="date_reservation" value="<?php echo date('Y-m-d');?>" >
-<label for="date_entrer">Date arrivée</label><br>
-<input type="date" class="box-input" name="date_entrer" placeholder="Date d'arrivée">
-<input type="date" class="box-input" name="date_sortie" placeholder="Date de depart">
-<input type="submit" value="Reserver " name="submit" class="box-button">
-</form>
+
+<?php include "../View/Forms/reservationForm.php"
+?>
 </body>
 
 </html>
