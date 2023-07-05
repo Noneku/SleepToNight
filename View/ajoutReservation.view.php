@@ -13,6 +13,7 @@
 <label for="date_entrer">Date arrivée</label><br>
 <input type="date" class="box-input" name="date_entrer" placeholder="Date d'arrivée">
 <input type="date" class="box-input" name="date_sortie" placeholder="Date de depart">
+<select name="id_chambre" id=""></select>
 <input type="submit" value="Reserver " name="submit" class="box-button">
 </form>
 </body>
