@@ -50,7 +50,7 @@ session_start();
   <img src="../typy-pokoi-hotelowych.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Catégorie de Chambres</h5>
-    <td></td><a href="./cateAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+    <td></td><a href="./categorie.view.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 
@@ -61,7 +61,7 @@ session_start();
   <img src="../Réservation.png" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Réservations</h5>
-    <a href="./reserAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+    <a href="./reservationAdmin.view.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 
@@ -96,7 +96,7 @@ session_start();
   <img src="../Liste utilisateur.jpg" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Liste des Utilisateur</h5>
-    <a href="./utiliAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+    <a href="./utilisateurAdmin.view.php" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 

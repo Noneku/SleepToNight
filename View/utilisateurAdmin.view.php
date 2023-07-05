@@ -49,10 +49,6 @@ session_start()
     </tr>
     <?php endforeach; ?>
   </tbody>
-    
-    
-    
-  
 </table>
             
        
