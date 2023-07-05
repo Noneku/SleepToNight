@@ -1,5 +1,9 @@
 <?php
 session_start();
+include '../../Model/DBManager.class.php';
+$db = new DBManager();
+$listChambres = $db->selectListeChambre();
+
 $_SESSION['nom_utilisateur'];
 ?>
 
@@ -26,10 +30,16 @@ $_SESSION['nom_utilisateur'];
             </div>
         </div>
         <div class="col-md-6 mb-4">
-            <!-- <div class="form-outline">
-                <input type="text" id="id_chambre" name="id_chambre" class="form-control form-control-lg" />
+            <div class="form-outline">
                 <label class="form-label mt-2" for="id_chambre">Chambre</label>
-            </div> -->
+                <select name="id_chambre" id="id_chambre">
+                    <option value="">Selectionner une chambre</option>
+                    <option value="<?php
+            foreach ($listChambres as $key => $chambre) 
+             echo $listChambres['id_chambre']; ?>"></option>
+                </select>
+                
+            </div>
         </div>
         <!-- <div class="col-md-6 mb-4">
             <div class="form-outline">
