@@ -19,5 +19,5 @@ $db = new DBManager();
 // print_r($db -> selectListeUtilisateur());
 
 $_SESSION['$db'] = $db;
-header("Location: ../V/admin.View.php");
+header("Location: ../view/admin.view.php");
 ?>

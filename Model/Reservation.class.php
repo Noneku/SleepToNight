@@ -54,6 +54,86 @@ class Reservation {
 
         return $this;
     }
+
+    /**
+     * Get the value of date_reservation
+     */ 
+    public function getDate_reservation()
+    {
+        return $this->date_reservation;
+    }
+
+    /**
+     * Set the value of date_reservation
+     *
+     * @return  self
+     */ 
+    public function setDate_reservation($date_reservation)
+    {
+        $this->date_reservation = $date_reservation;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of date_sortie
+     */ 
+    public function getDate_sortie()
+    {
+        return $this->date_sortie;
+    }
+
+    /**
+     * Set the value of date_sortie
+     *
+     * @return  self
+     */ 
+    public function setDate_sortie($date_sortie)
+    {
+        $this->date_sortie = $date_sortie;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of chambre
+     */ 
+    public function getChambre()
+    {
+        return $this->chambre;
+    }
+
+    /**
+     * Set the value of chambre
+     *
+     * @return  self
+     */ 
+    public function setChambre($chambre)
+    {
+        $this->chambre = $chambre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of client
+     */ 
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * Set the value of client
+     *
+     * @return  self
+     */ 
+    public function setClient($client)
+    {
+        $this->client = $client;
+
+        return $this;
+    }
 }
 
 ?>

@@ -9,8 +9,9 @@ if(isset($_POST))
     $login = $_POST['nom_utilisateur'];
     $password = $_POST['mot_de_passe'];
     $db = new DBManager();
-    $db->conexionUser($login,$password);
-    
+    $db->connexionUser($login,$password);
+    session_name($_POST['nom_utilisateur']);
+    session_start();
 }
 
 ?>

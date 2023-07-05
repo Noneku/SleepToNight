@@ -123,7 +123,26 @@
 
             }
         }
+            public function recuperationIdclient($session){
+                $sql="SELECT id_client FROM utilisateur where nom_utilisateur='$session'";
+                $result= $this->bdd->prepare($sql);
+                $result->execute();
 
+            }
+            public function creerUneReservation(Reservation $reservation){
+
+
+                $sql = "INSERT INTO client (date_reservation,date_entree,date_sortie,id_chambre,id_client) VALUES (?,?,?,?,?)";
+                $stmt= $this->bdd->prepare($sql);
+                $stmt->execute([
+                    $reservation->getDate_reservation(), 
+                    $reservation->getDate_entre(), 
+                    $reservation->getDate_sortie(),
+                    $reservation->getChambre(),
+                    $reservation->getClient(),
+                ]);  
+                
+            }
     
 
         /**
