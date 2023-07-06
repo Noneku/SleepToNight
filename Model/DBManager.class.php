@@ -58,10 +58,10 @@
             return $listUtilisateur;
         }
 
-        public function selectByNom(string $nom)
+        public function selectByNom(string $nom) : array
         {
             
-            $stmt= $this->bdd->prepare("SELECT 'id_client' FROM `utilisateur` WHERE  'nom_utilisateur'= '$nom';");
+            $stmt= $this->bdd->prepare("SELECT * FROM `utilisateur` WHERE `nom_utilisateur` = '$nom';");
             $stmt->execute();
             $entity = $stmt->fetchAll();
             return $entity;
@@ -145,22 +145,18 @@
             }
             public function creerUneReservation(Reservation $reservation){
 
-
-                $sql = "INSERT INTO reservation (date_reservation,date_entrer,date_sortie,id_client) VALUES (?,?,?,?)";
+                
+                $sql = "INSERT INTO reservation (date_reservation,date_entrer,date_sortie,id_client,id_chambre) VALUES (?,?,?,?,?)";
                 $stmt= $this->bdd->prepare($sql);
                 $stmt->execute([
                     $reservation->getDate_reservation(),
                     $reservation->getDate_entre(), 
                     $reservation->getDate_sortie(),
-                    // $reservation->getChambre(),
-                    $reservation->getId_client(),
+                    1,
+                    2
                 ]); 
-                $sql="SELECT * FROM chambre where id_chambre='$login'";
-            $result= $this->bdd->prepare($sql);
-            $result->execute();
-            //si une ligne avec le nom d'utilisateur existe alors on controle le mot de passe
-            if($result->rowCount()> 0) 
                 
+           
             }
     
 

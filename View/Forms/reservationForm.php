@@ -4,7 +4,7 @@ $_SESSION['nom_utilisateur'];
 ?>
 
 
-<form method="post" action='../../Controller/ajoutReservation.ctrl.php' class="w-50">
+<form method="post" action='../Controller/ajoutReservation.ctrl.php' class="w-50">
 
     <div class="row">
         <div class="col-md-6 mb-4">
@@ -32,7 +32,7 @@ $_SESSION['nom_utilisateur'];
                     <option value="">Selectionner une chambre</option>
                     <option value="1">chambre 1</option>
                     <option value="2">chambre 2</option>
-                    <option value="3">chambre </option>
+                    <option value="3">chambre 3</option>
                     <option value="4">chambre 4</option>
                     <option value="5">chambre 5</option>
                     <option value="6">chambre 6</option>

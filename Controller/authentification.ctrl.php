@@ -14,6 +14,8 @@ if(isset($_POST))
         $db = new DBManager();
         $db->connexionUser($login,$password);
         $_SESSION['nom_utilisateur'] = $login;
+        $utilisateur = $db->selectByNom($login);
+        $_SESSION['utilisateur'] = $utilisateur;
         
         header('Location: ../View/ClientView/client.view.php');
     }

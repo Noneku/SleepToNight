@@ -14,7 +14,7 @@
     $db = new DBManager();
     $listChambres = $db->selectListeChambre();
     session_start();
-    var_dump($_SESSION['nom_utilisateur']);
+    var_dump($_SESSION['nom'][0]['id_client']);
     ?>
 
     <main>

@@ -5,15 +5,15 @@ class Reservation {
     private string $date_reservation;
     private string $date_entrer;
     private string $date_sortie;
-    // private Chambre $chambre;
+    private  $id_chambre;
     private   $id_client;
 
-    function __construct($date_reservation, $date_entrer, $date_sortie, $id_client) {
+    function __construct($date_reservation, $date_entrer, $date_sortie,$id_chambre, $id_client) {
 
     	$this-> date_reservation = $date_reservation;
     	$this-> date_entrer = $date_entrer;
     	$this-> date_sortie = $date_sortie;
-        // $this-> chambre = $chambre;
+        $this-> id_chambre = $id_chambre;
         $this-> id_client = $id_client;
     }
 
@@ -134,6 +134,26 @@ class Reservation {
     public function setId_client($id_client)
     {
         $this->id_client = $id_client;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_chambre
+     */ 
+    public function getId_chambre()
+    {
+        return $this->id_chambre;
+    }
+
+    /**
+     * Set the value of id_chambre
+     *
+     * @return  self
+     */ 
+    public function setId_chambre($id_chambre)
+    {
+        $this->id_chambre = $id_chambre;
 
         return $this;
     }
