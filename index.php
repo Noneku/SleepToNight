@@ -50,7 +50,7 @@
             <?php
                 foreach ($listChambres as $key => $chambre) :
             ?>
-            <div class="card" style="width: 18rem;">
+            <div class="card mt-3" style="width: 18rem;">
                 <img src="https://picsum.photos/200" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre']?></h5>
