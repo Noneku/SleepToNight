@@ -56,24 +56,73 @@ include '../../Model/DBManager.class.php';
             </thead>
             <tbody>
                 <?php
-                $db = new DBManager();
+                $db = new DBManager(); ?>
 
-                $clientsListe = $db->selectListeClient(); ?>
+<div class="card" style="width: 18rem;">
+  <img src="../typy-pokoi-hotelowych.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Catégorie de Chambres</h5>
+    <td></td><a href="./categorie.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Réservation.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Réservations</h5>
+    <a href="./reservationAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Client.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Historique des Clients</h5>
+    <a href="./clientAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Listre chambre.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Liste des Chambres</h5>
+    <a href="./chambreAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../Liste utilisateur.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Liste des Utilisateur</h5>
+    <a href="./utilisateurAdmin.view.php" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
 
                 <?php foreach ($clientsListe as $client) : ?>
-                    <form action='./singleClientAdmin.view.php' method="post">
-                        <tr>
-                            <th scope="row"><?php echo $client['id_client']; ?></td>
-                            <td><?php echo $client['nom_prenom']; ?></td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td></td>
-                            <td>
-
-                                <button type="submit" class="btn btn-primary" name="id_client" value="<?php echo $client['id_client']; ?>">Plus d'infos</button>
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                    </form>
-                    </td>
+                    <tr>
+                        <th scope ="row"><?php echo $client['id_client']; ?></td>
+                        <td><?php echo $client['nom_prenom']; ?></td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn btn-primary">Plus d'infos</button>
+                            <button type="button" class="btn btn-danger">Supprimer</button>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -40,7 +40,7 @@
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Connexion</a>
+                            <a class="nav-link active" aria-current="page" href="../View/ClientView/client.view.php">Connexion</a>
                         </li>
                     </ul>
                 </div>

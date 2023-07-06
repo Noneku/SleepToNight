@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <?php 
-    include('../../Model/DBManager.class.php');
-    session_start();
+    <?php include('../Model/DBManager.class.php');
     $db = new DBManager();
     $listChambres = $db->selectListeChambre();
     // var_dump($_SESSION['client']);
