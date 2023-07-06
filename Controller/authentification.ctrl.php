@@ -14,7 +14,7 @@ if(isset($_POST))
         $db = new DBManager();
         $db->connexionUser($login,$password);
 
-        header('Location: ../View/client.view.php');
+        header('Location: ../View/ClientView/client.view.php');
     }
     
 }
