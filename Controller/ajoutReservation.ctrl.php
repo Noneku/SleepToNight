@@ -1,26 +1,30 @@
 <?php
     session_start();
-    $_SESSION['nom_utilisateur'];
+
     include '../Model/Compte/Reservation.class.php';
     include '../Model/DBManager.class.php';
 
+
     if(isset($_POST)){
         $db = new DBManager();
-        $id_utilisateur=$_SESSION['utilisateur'][0]['id_client'];
-        var_dump($nom);
-        $id_chambre=$_POST['id_chambre'];
-        $chambre = $db->selectById('chambre', 'id_chambre',$id_chambre);
+        // var_dump($_SESSION['client']);
+         $id_chambre = $_SESSION['client'][4]['id_chambre'];
+         echo("id de la chambre" . $id_chambre);
+         $id_client = $_SESSION['client'][0]['id_client'];
+
+
+        // $chambre = $db->selectById('chambre', 'id_chambre',$id_chambre);
         $Reservation = new Reservation(
             $_POST['date_reservation'],
             $_POST['date_entrer'],
             $_POST['date_sortie'],
-            $chambre,
-            $id_utilisateur
+            $id_chambre,
+            $id_client
         );
         
-        $db->creerUneReservation($Reservation);
-
-        //    print_r($Reservation);
+            $db->creerUneReservation($Reservation);
+           print_r($Reservation);
+           header('Location: ../View/ClientView/client.view.php');
     
     
     }

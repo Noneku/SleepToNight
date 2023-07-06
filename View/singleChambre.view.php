@@ -11,10 +11,19 @@
 
 <body>
     <?php
+        session_start();
         include('../Model/DBManager.class.php');
         $db = new DBManager();
+        //Chambre
         $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
+        $id_chambre = $chambre[0];
+
         $category = $db->selectById("categorie", "id_categorie", $chambre[0]['id_categorie']);
+         $client = $_SESSION['client'];
+         array_push($client, $id_chambre);
+
+         $_SESSION['client'] = $client;
+         var_dump($_SESSION['client']);
     ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -56,6 +65,9 @@
                     <h4 class="card-title">Prix : <?php echo $chambre[0]['prix'] . "€"; ?></h4>
                     <h4 class="card-title">Categorie : <?php echo $category[0]['designation'];?></h4>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <form action="./ajoutReservation.view.php" method="post">
+                        <button type="submit"class="btn btn-primary" name = "id_chambre" value=<?php echo $chambre[0]['id_chambre']; ?>>Reservation</button>
+                    </form>
                 </div>
             </div>
         </section>

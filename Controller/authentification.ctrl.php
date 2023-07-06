@@ -1,7 +1,7 @@
 <?php
-session_start();
 
 include "../Model/DBManager.class.php";
+session_start();
 
 if(isset($_POST))
 {
@@ -13,6 +13,10 @@ if(isset($_POST))
         $password = $_POST['mot_de_passe'];
         $db = new DBManager();
         $db->connexionUser($login,$password);
+
+
+        $client = $db->selectByNom($login);
+        $_SESSION['client'] = $client;
         header('Location: ../View/ClientView/client.view.php');
     }
     

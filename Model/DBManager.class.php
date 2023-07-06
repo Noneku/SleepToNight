@@ -11,7 +11,7 @@
         }
 
         //Méthode qui récupère l'entité selon l'id
-        public function selectById(string $table, string $column, string $id) : array 
+        public function selectById(string $table, string $column, int $id) : array 
         {
             $stmt= $this->bdd->prepare("SELECT * FROM `$table` WHERE `$column` = $id;");
             $stmt->execute();
