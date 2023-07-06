@@ -11,7 +11,7 @@
         }
 
         //Méthode qui récupère l'entité selon l'id
-        public function selectById(string $table, string $column, string $id) : array 
+        public function selectById(string $table, string $column, int $id) : array 
         {
             $stmt= $this->bdd->prepare("SELECT * FROM `$table` WHERE `$column` = $id;");
             $stmt->execute();
@@ -58,7 +58,14 @@
             return $listUtilisateur;
         }
 
-   
+        public function selectByNom(string $nom) : array
+        {
+            
+            $stmt= $this->bdd->prepare("SELECT * FROM `utilisateur` WHERE `nom_utilisateur` = '$nom';");
+            $stmt->execute();
+            $entity = $stmt->fetchAll();
+            return $entity;
+        }
 
         //methode qui ajoute un client
         public function insertClient( $nationalite, $num_passe,$prenom_client,$adress_client,$tele_client) : void {       
@@ -116,20 +123,42 @@
                 $data = $result->fetchAll();
                 //verification du mot de passe hashé
                 if (password_verify($password,$data[0]["mot_de_passe"])){
-                
+               
                  echo "Connexion effectuée";
-                 
-                $_SESSION['nom_utilisateur'] = $login;
-                
                 }else{
+
                     echo "connexion echoué";
-                } 
+
+                }
+                
             }else{
+
                 echo "vous n'êtes pas inscrit";
+
             }
         }
+            public function recuperationIdclient($session){
+                $sql="SELECT id_client FROM utilisateur where nom_utilisateur='$session'";
+                $result= $this->bdd->prepare($sql);
+                $result->execute();
 
-            
+            }
+            public function creerUneReservation(Reservation $reservation){
+
+                
+                $sql = "INSERT INTO reservation (date_reservation,date_entrer,date_sortie,id_client,id_chambre) VALUES (?,?,?,?,?)";
+                $stmt= $this->bdd->prepare($sql);
+                $stmt->execute([
+                    $reservation->getDate_reservation(),
+                    $reservation->getDate_entre(), 
+                    $reservation->getDate_sortie(),
+                    1,
+                    2
+                ]); 
+                
+           
+            }
+    
 
         /**
          * Get the value of bdd

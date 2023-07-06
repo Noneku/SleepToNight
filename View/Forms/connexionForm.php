@@ -1,7 +1,7 @@
-<form action = "../Controller/authentification.ctrl.php" method="post" style="height: 1000px;">
+<form method="post" action="..\Controller\authentification.ctrl.php"  class ="w-25">
     <!-- Email input -->
     <div class="form-outline mb-4">
-        <input type="text" id="nom_utilisateur"  name="nom_utilisateur" class="form-control" />
+        <input type="text" id="nom_utilisateur" name="nom_utilisateur" class="form-control" />
         <label class="form-label" for="nom_utilisateur">Nom de compte</label>
     </div>
 
