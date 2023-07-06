@@ -10,8 +10,13 @@
 </head>
 
 <?php
-    include '../../Model/DBManager.class.php';
-    session_start();
+session_start();
+include '../../Model/DBManager.class.php';
+
+$db = new DBManager();
+$client = $db->selectById("client", "id_client", $_POST['id_client']);
+
+// var_dump($client);
 ?>
 
 <body>
@@ -44,36 +49,17 @@
         </nav>
     </header>
     <main>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Identifiant</th>
-                    <th scope="col">Nom Prénom</th>
-                    <th scope="col">Date Réservation</th>
-                    <th scope="col">Du</th>
-                    <th scope="col">Au</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $db = new DBManager();
-
-                $clientsListe = $db->selectListeClient(); ?>
-
-                <?php foreach ($clientsListe as $client) : ?>
-                    <tr>
-                        <th scope ="row"><?php echo $client['id_client']; ?></td>
-                        <td><?php echo $client['nom_prenom']; ?></td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-primary">Plus d'infos</button>
-                            <button type="button" class="btn btn-danger">Supprimer</button>
-                        </td>
-                    </tr>
-            </tbody>
-        </table>
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h6 class="card-title">INFORMATIONS DU CLIENT : <?php echo $client[0]['id_client']; ?></h6>
+                <h5 class="card-subtitle mb-2 text-body-secondary">Nom Prénom : <?php echo $client[0]['nom_prenom']; ?></h5>
+                <h5 class="card-subtitle mb-2 text-body-secondary">Nationalite : <?php echo $client[0]['nationalite']; ?></h5>
+                <h5 class="card-subtitle mb-2 text-body-secondary">Identifiant PassePort : <?php echo $client[0]['num_passeport']; ?></h5>
+                <h5 class="card-subtitle mb-2 text-body-secondary">Adresse : <?php echo $client[0]['adresse']; ?></h5>
+                <h5 class="card-subtitle mb-2 text-body-secondary">Telephone : <?php echo $client[0]['telephone']; ?></h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
     </main>
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted d-flex">

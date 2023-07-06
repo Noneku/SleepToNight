@@ -10,8 +10,8 @@
 </head>
 
 <?php
-include '../../Model/DBManager.class.php';
 session_start();
+include '../../Model/DBManager.class.php';
 ?>
 
 <body>
@@ -61,16 +61,19 @@ session_start();
                 $clientsListe = $db->selectListeClient(); ?>
 
                 <?php foreach ($clientsListe as $client) : ?>
-                    <tr>
-                        <th scope ="row"><?php echo $client['id_client']; ?></td>
-                        <td><?php echo $client['nom_prenom']; ?></td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td></td>
-                        <td>
-                            <button type="button" class="btn btn-primary">Plus d'infos</button>
-                            <button type="button" class="btn btn-danger">Supprimer</button>
-                        </td>
+                    <form action='./singleClientAdmin.view.php' method="post">
+                        <tr>
+                            <th scope="row"><?php echo $client['id_client']; ?></td>
+                            <td><?php echo $client['nom_prenom']; ?></td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td></td>
+                            <td>
+
+                                <button type="submit" class="btn btn-primary" name="id_client" value="<?php echo $client['id_client']; ?>">Plus d'infos</button>
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                    </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

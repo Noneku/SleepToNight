@@ -13,10 +13,6 @@ if(isset($_POST))
         $password = $_POST['mot_de_passe'];
         $db = new DBManager();
         $db->connexionUser($login,$password);
-        $_SESSION['nom_utilisateur'] = $login;
-        $utilisateur = $db->selectByNom($login);
-        $_SESSION['utilisateur'] = $utilisateur;
-        
         header('Location: ../View/ClientView/client.view.php');
     }
     

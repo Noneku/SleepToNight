@@ -1,11 +1,11 @@
 <?php
 
-class Chambre extends Categorie {
+class Chambre {
 
     private int $id;
     private float $prix;
     private int $etage;
-    private Categorie $categorie;
+    private string $categorie;
 
     function __construct($prix, $etage) {
 
