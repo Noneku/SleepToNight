@@ -23,7 +23,7 @@
 
         <div class="col">
             <!-- Simple link -->
-            <a href="#!">Forgot password?</a>
+            <a href="./inscription.view.php">Je m'enregistre</a>
         </div>
     </div>
 
