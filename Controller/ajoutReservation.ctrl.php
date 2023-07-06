@@ -13,7 +13,7 @@
             $_POST['date_reservation'],
             $_POST['date_entrer'],
             $_POST['date_sortie'],
-            
+            $_POST['id_chambre'],
             $id_client,
         );
         

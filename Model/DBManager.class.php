@@ -154,7 +154,12 @@
                     $reservation->getDate_sortie(),
                     // $reservation->getChambre(),
                     $reservation->getId_client(),
-                ]);  
+                ]); 
+                $sql="SELECT * FROM chambre where id_chambre='$login'";
+            $result= $this->bdd->prepare($sql);
+            $result->execute();
+            //si une ligne avec le nom d'utilisateur existe alors on controle le mot de passe
+            if($result->rowCount()> 0) 
                 
             }
     
