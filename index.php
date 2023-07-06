@@ -25,7 +25,7 @@
 <nav class="navbar">
   <div class="container">
     <div class="navbar-logo">
-      <a href="">
+      <a href="./index.php">
         <img src="./img/logoS.png" alt="Logo">
       </a>
     </div>
@@ -35,7 +35,7 @@
     </div>
     <div class="navbar-links">
       <a href="./View/Forms/connexionForm.php">Connexion</a>
-      <a href="./View/Forms/inscriptionForm.phpgit status">Inscription</a>
+      <a href="./View/Forms/inscriptionForm.php">Inscription</a>
       <a href="#">Liste des chambres</a>
     </div>
   </div>

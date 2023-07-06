@@ -19,6 +19,6 @@ if(isset($_POST)){
     $DBManager = new DBManager();
     $DBManager->insertEmploye($Utilisateur);
 
-    header('Location: ../View/connexion.view.php');
+    header('Location: ../View/ClientView/client.view.php');
 }
 ?>

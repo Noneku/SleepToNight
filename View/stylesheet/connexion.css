@@ -1,0 +1,347 @@
+html, body {
+    height: 100%;
+   margin: auto;
+   padding: 0%;
+   background-color: #0f0e17;
+  }
+  
+
+
+header {
+  position: relative;
+  height: 100vh; /* Utilise la hauteur complète de l'écran */
+  margin-bottom: 30%;
+}
+/* Styles généraux de la navbar */
+.navbar {
+  background-color: aliceblue;
+  padding: 10px 0;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styles du logo */
+
+.navbar-logo img {
+  width: 100%;
+}
+
+/* Styles de la barre de recherche */
+.navbar-search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-search input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 5px;
+  border: none;
+}
+.navbar-search button {
+  width: 150px;
+  height: 60px;
+  font-size: 0.8rem;
+  font-family: arial, sans-serif;
+  font-weight: 700;
+  position: relative;
+  color: white;
+  z-index: 0;
+  border: 1px solid #59511E;
+  background: #0f0e17;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 8px 8px 8px -3px #59511E, 0 5px 5px 0 rgba(0, 0, 0, 0.183);
+}
+
+.navbar-search button::before {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #59511E;
+  border-radius: 50% 50% 0% 0%;
+  z-index: -1;
+  transition: all .5s;
+}
+
+.navbar-search button:hover::before {
+  top: 0px;
+  border-radius: 0;
+}
+
+
+/* Styles des liens */
+.navbar-links {
+  
+  display: block;
+  justify-content: center;
+}
+
+.navbar-links a {
+  color: #333333;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  color: #59511E;
+}
+
+  
+/* HEADER */
+
+
+/* FORMULAIRE */
+#containe{
+    position: relative;
+    width:400px;
+    margin:0 auto;
+    margin-top:25%;
+  }
+  
+  form {
+    margin-top: -955px;
+    width:100%;
+    padding: 30px;
+    border: 1px solid #59511E;
+    background:#0f0e17;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 8px 8px 8px -3px #59511E, 0 15px 15px 0 rgba(0, 0, 0, 0.183);
+    margin-left: -23px;
+  }
+  #container h1{
+  
+    width: 38%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+  }
+  
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid aliceblue;
+    box-sizing: border-box;
+  }
+  
+  
+  input[type=submit] {
+    background-color: #59511E;
+    color: aliceblue;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  input[type=submit]:hover {
+    background-color: #000000;
+    color: #59511E;
+    border: 1px solid #59511E;
+  }
+
+  .login-button { 
+    background-color: #59511e00; 
+    border: none; 
+    border-radius: 50px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+  }  
+  .login-button img{
+    border-radius: 1000%;
+  }
+  
+  .login-button:hover { 
+        
+    background-color:#59511E; 
+  } 
+  
+a:hover {
+    color: #59511E;
+  
+  }
+  a{
+  
+   color: aliceblue;
+   
+  }
+  h1{
+    margin-left: 76px;
+    color: aliceblue;
+  }
+  b{
+    color: aliceblue
+  }
+  /* FORMULAIRE */
+
+  
+   /* /* TEST FOOTER   */
+  
+  
+  
+  
+   @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+   /* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"); */
+   
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   
+   *:focus,
+   
+   *:active {
+     outline: none !important;
+     -webkit-tap-highlight-color: transparent;
+   }
+   
+   footer {
+     font-family: "Poppins", sans-serif;
+     position: relative;
+     bottom: 0px;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     flex-direction: column;
+     padding: 20px 0px;
+     background: aliceblue;
+     border-top: #59511E 5px solid;
+     margin-top: 20%;
+   }
+   
+   p {
+     color: black;
+   }
+   
+   .social {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+   
+   .wrapper {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding-bottom: 40px;
+   }
+   
+   .wrapper .icon {
+     position: relative;
+     background: aliceblue;
+     color: rgb(0, 0, 15);
+     border-radius: 50%;
+     margin: 10px;
+     width: 50px;
+     height: 50px;
+     font-size: 18px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+     cursor: pointer;
+     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+   }
+   
+   .wrapper .tooltip {
+     position: absolute;
+     top: 0;
+     font-size: 14px;
+     background: aliceblue;
+     color: aliceblue;
+     font-family: "Poppins", sans-serif;
+     padding: 5px 8px;
+     border-radius: 5px;
+     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+     opacity: 0;
+     pointer-events: none;
+     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+   }
+   
+   .wrapper .tooltip::before {
+     position: absolute;
+     content: "";
+     height: 8px;
+     width: 8px;
+     background: aliceblue;
+     top: -3px;
+     left: 50%;
+     transform: translate(-50%) rotate(45deg);
+     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+   }
+   
+   .wrapper .icon:hover .tooltip {
+     top: 60px;
+     opacity: 1;
+     visibility: visible;
+     pointer-events: auto;
+   }
+   
+   .wrapper .icon:hover span,
+   .wrapper .icon:hover .tooltip {
+     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+   }
+   
+   .wrapper .linkedin:hover,
+   .wrapper .linkedin:hover .tooltip,
+   .wrapper .linkedin:hover .tooltip::before {
+     background: #0077b5;
+     color: aliceblue;
+   }
+   
+   .wrapper .facebook:hover,
+   .wrapper .facebook:hover .tooltip,
+   .wrapper .facebook:hover .tooltip::before {
+     background: #4267b2;
+     color: aliceblue;
+   }
+   
+   .wrapper .twitter:hover,
+   .wrapper .twitter:hover .tooltip,
+   .wrapper .twitter:hover .tooltip::before {
+     background: #1da1f2;
+     color: aliceblue;
+   }
+   
+   .wrapper .instagram:hover,
+   .wrapper .instagram:hover .tooltip,
+   .wrapper .instagram:hover .tooltip::before {
+     background: radial-gradient(
+       circle at 30% 107%,
+       #fdf497 0%,
+       #fdf497 5%,
+       #fd5949 45%,
+       #d6249f 60%,
+       #285aeb 90%
+     );
+     color: aliceblue;
+   }
+   
+   .wrapper .github:hover,
+   .wrapper .github:hover .tooltip,
+   .wrapper .github:hover .tooltip::before {
+     background: #333;
+     color: aliceblue;
+   }

@@ -10,7 +10,9 @@
 </head>
 
 <body>
-    <?php include('./Model/DBManager.class.php');
+    <?php
+     
+    include('../../Model/DBManager.class.php');
     $db = new DBManager();
     $listChambres = $db->selectListeChambre();
     ?>
