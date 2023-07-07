@@ -17,6 +17,8 @@ if(isset($_POST))
 
         $client = $db->selectByNom($login);
         $_SESSION['client'] = $client;
+        // $_SESSION['id_client'] = $db->selectByNom($login);
+        
         header('Location: ../View/ClientView/client.view.php');
     }
     

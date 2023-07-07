@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +59,7 @@
                         <h4 class="card-title">Categorie : <?php echo $category[0]['designation']; ?></h4>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block mb-4 w-50">Réserver</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-4 w-50" name='id_chambre'value="<?php echo $chambre[0]['id_chambre'];?>">Réserver</button>
                 </div>
             </form>
         </section>

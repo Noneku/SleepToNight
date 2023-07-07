@@ -5,8 +5,8 @@ class Reservation {
     private string $date_reservation;
     private string $date_entrer;
     private string $date_sortie;
-    private  $id_chambre;
-    private   $id_client;
+    private  int $id_chambre;
+    private  int $id_client;
 
     function __construct($date_reservation, $date_entrer, $date_sortie,$id_client,$id_chambre) {
 
