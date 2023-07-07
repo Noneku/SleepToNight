@@ -11,19 +11,10 @@
 
 <body>
     <?php
-        session_start();
-        include('../Model/DBManager.class.php');
-        $db = new DBManager();
-        //Chambre
-        $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
-        $id_chambre = $chambre[0];
-
-        $category = $db->selectById("categorie", "id_categorie", $chambre[0]['id_categorie']);
-         $client = $_SESSION['client'];
-         array_push($client, $id_chambre);
-
-         $_SESSION['client'] = $client;
-         var_dump($_SESSION['client']);
+    include('../Model/DBManager.class.php');
+    $db = new DBManager();
+    $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
+    $category = $db->selectById("categorie", "id_categorie", $chambre[0]['id_categorie']);
     ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -49,7 +40,7 @@
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="View/ClientView/connexion.view.php">Connexion</a>
+                            <a class="nav-link active" aria-current="page" href="./connexion.view.php">Connexion</a>
                         </li>
                     </ul>
                 </div>
@@ -58,18 +49,18 @@
     </header>
     <main>
         <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
-            <div class="card" style="width: 18rem;">
-                <img src="https://picsum.photos/200" class="card-img-top" alt="">
-                <div class="card-body">
-                    <h5 class="card-title">Chambre numéro : <?php echo $chambre[0]['id_chambre']; ?></h5>
-                    <h4 class="card-title">Prix : <?php echo $chambre[0]['prix'] . "€"; ?></h4>
-                    <h4 class="card-title">Categorie : <?php echo $category[0]['designation'];?></h4>
+            <form action="../Controller/reservation.ctrl.php" method="post">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://picsum.photos/200" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Chambre numéro : <?php echo $chambre[0]['id_chambre']; ?></h5>
+                        <h4 class="card-title">Prix : <?php echo $chambre[0]['prix'] . "€"; ?></h4>
+                        <h4 class="card-title">Categorie : <?php echo $category[0]['designation']; ?></h4>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <form action="./ajoutReservation.view.php" method="post">
-                        <button type="submit"class="btn btn-primary" name = "id_chambre" value=<?php echo $chambre[0]['id_chambre']; ?>>Reservation</button>
-                    </form>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mb-4 w-50">Réserver</button>
                 </div>
-            </div>
+            </form>
         </section>
 
     </main>

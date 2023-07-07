@@ -30,7 +30,7 @@
                             <h5 class="card-title">Chambre numéro : <?php echo $chambre['id_chambre']; ?></h5>
                             <h4 class="card-title">Prix : <?php echo $chambre['prix'] . "€" ?></h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="submit" name="id_chambre" value="<?php echo $chambre['id_chambre']; ?>">Consulter</button>
+                                <button type="submit" class="btn btn-primary btn-block mb-4 w-50" name="id_chambre" value="<?php echo $chambre['id_chambre']; ?>">Consulter</button>
                         </div>
                     </div>
                 </form>
