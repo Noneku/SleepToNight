@@ -16,6 +16,10 @@
     $db = new DBManager();
     $chambre = $db->selectById("chambre", "id_chambre", $_POST['id_chambre']);
     $category = $db->selectById("categorie", "id_categorie", $chambre[0]['id_categorie']);
+
+    //Add Value of ID_Chambre in array Session Client
+    $_SESSION['client']['id_chambre'] = $chambre[0]['id_chambre'];
+
     ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -41,7 +45,10 @@
                     </form>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./connexion.view.php">Connexion</a>
+                            <a class="nav-link active" aria-current="page" href="./connexion.view.php">Déconnexion</a>
+                        </li>
+                        <li>
+                            <p class="mt-2"><?php echo $_SESSION['client'][0]['nom_utilisateur']; ?></p>
                         </li>
                     </ul>
                 </div>
@@ -50,7 +57,7 @@
     </header>
     <main>
         <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
-            <form action="../Controller/reservation.ctrl.php" method="post">
+            <form action="./reservation.view.php" method="post">
                 <div class="card" style="width: 18rem;">
                     <img src="https://picsum.photos/200" class="card-img-top" alt="">
                     <div class="card-body">
@@ -59,7 +66,7 @@
                         <h4 class="card-title">Categorie : <?php echo $category[0]['designation']; ?></h4>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block mb-4 w-50" name='id_chambre'value="<?php echo $chambre[0]['id_chambre'];?>">Réserver</button>
+                    <button type="submit" class="btn btn-primary btn-block mb-4 w-50" name='id_chambre'>Réserver</button>
                 </div>
             </form>
         </section>

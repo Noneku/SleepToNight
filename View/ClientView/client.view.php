@@ -15,9 +15,42 @@
     session_start();
     $db = new DBManager();
     $listChambres = $db->selectListeChambre();
-    // var_dump($_SESSION['client']);
+    var_dump($_SESSION['client']);
     ?>
-
+    <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php">SleepToNight</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Assistance</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex flex-column">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav d-flex align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="View/connexion.view.php">Déconnexion,</a>
+                        </li>
+                        <li>
+                            <p class="mt-2"><?php echo $_SESSION['client'][0]['nom_utilisateur']; ?></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
         <section class=" w-100 d-flex flex-row flex-wrap justify-content-around">
             <?php

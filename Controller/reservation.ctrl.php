@@ -1,7 +1,6 @@
 <?php
 session_start();
-header('Location:../View/reservation.view.php');
-
+var_dump($_SESSION['client'][0]['id_utilisateur']);
 if(isset($_POST)){
     // var_dump($_SESSION['client']);
     // var_dump($_POST['id_chambre']);
@@ -12,13 +11,15 @@ if(isset($_POST)){
         $_POST['date_reservation'],
         $_POST['date_enter'],
         $_POST['date_sortie'],
-        $_SESSION['id_client'],
-        intval($_POST['id_chambre'])
+        $_SESSION['client'][0]['id_utilisateur'],
+        $_SESSION['client']['id_chambre']
     );
    
     $db=new DBManager();
     $db->creerUneReservation($Reservation);
     
+    header('Location:../View/reservation.view.php');
 }
+
 
 ?>

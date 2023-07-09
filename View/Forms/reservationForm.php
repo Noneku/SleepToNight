@@ -1,6 +1,4 @@
-
-
-<form class="box" action="..\Controller\reservation.ctrl.php" method="post">
+<form class="box" action="../Controller/reservation.ctrl.php" method="post">
     <h1 class="box-title">Reservation</h1>
 
     <p>
@@ -10,7 +8,7 @@
 
     <p>
         <label for="date_entrer">Date arrivée</label><br>
-        <input type="date" class="box-input" name="date_entrer" placeholder="Date d'arrivée"><br><br>
+        <input type="date" class="box-input" name="date_enter" placeholder="Date d'arrivée"><br><br>
     </p>
 
     <p>
